@@ -137,6 +137,10 @@ class GitRepository:
             else:
                 print(f"Directory {dir_path} is already up to date.")
 
+    def commit(self, arg1, author = 'PyGit user <user@kosmigen.com>'):
+        """提交暂存区的更改到仓库"""
+
+        
     def _store_object(self, git_object: GitObject) -> str:
         """将 Git 对象存储在 .pygit/objects 目录中"""
         obj_hash = git_object.hash()

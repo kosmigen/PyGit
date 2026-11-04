@@ -16,6 +16,11 @@ def main():
     add_parser = sub_argparser.add_parser("add", help="Add files and directories to the staging area")
     add_parser.add_argument("paths", nargs="+", help="Files or directories to add")
 
+    # commit command implementation
+    commit_parser = sub_argparser.add_parser("commit", help="Commit changes to the repository")
+    commit_parser.add_argument("-m", "--message", required=True, help="Commit message")
+    commit_parser.add_argument("--author", help="Author of the commit (default: current user)")
+
     # 从命令行参数中解析参数
     args = argparser.parse_args()
     # print(args.command)
@@ -54,6 +59,12 @@ def main():
                 else:
                     raise FileNotFoundError(f"Path '{full_path}' does not exist.")
                 
+        elif args.command == "commit":
+            if not repo.pygit_dir.exists():
+                print(f"Error: No PyGit repository found in {repo.path}. Please run 'init' first.")
+                return  
+            repo.commit(args.message, author=args.author)
+            
     except Exception as e:  # noqa: BLE001
         print(f"Error: {e}")
         sys.exit(1)
