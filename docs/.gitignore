@@ -1,0 +1,9 @@
+# Jekyll 本地预览和生成的页面
+/_site/
+/.jekyll-cache/
+/.jekyll-metadata
+/.sass-cache/
+
+# 本地 Ruby 依赖
+/.bundle/
+/vendor/

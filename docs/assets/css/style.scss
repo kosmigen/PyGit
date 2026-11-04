@@ -1,0 +1,25 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.docs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.docs-nav a[aria-current="page"] {
+  color: #222;
+  font-weight: 700;
+}
+
+.docs-edit {
+  margin-top: 36px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
+  font-size: 13px;
+}

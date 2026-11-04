@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+# 仅用于可选的本地预览；GitHub Pages 的分支发布不需要运行此文件。
+gem "github-pages", group: :jekyll_plugins
+gem "webrick", "~> 1.8"

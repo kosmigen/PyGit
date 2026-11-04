@@ -1,0 +1,39 @@
+# 网站标题、描述和主题可以直接在这里修改。
+title: PyGit
+description: 用 Python 理解 Git：从对象存储到版本控制。
+lang: zh-CN
+theme: jekyll-theme-minimal
+show_downloads: false
+
+# 对应当前仓库 https://github.com/kosmigen/PyGit。
+# 如果仓库改名或转移，请同步修改下面的地址。
+url: "https://kosmigen.github.io"
+baseurl: "/PyGit"
+repository: kosmigen/PyGit
+edit_base_url: "https://github.com/kosmigen/PyGit/edit/main/docs/"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+navigation:
+  - title: 首页
+    url: /
+  - title: 使用说明
+    url: /guide/
+  - title: 实现原理
+    url: /internals/
+  - title: 编辑文档
+    url: /editing/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
