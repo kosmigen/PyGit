@@ -1,0 +1,9 @@
+# “更多轮子”页面使用的项目列表。添加真实项目即可，不需要修改模板。
+- name: PyGit
+  language: Python
+  description: 用 Python 实现一个小型版本控制工具。
+  url: /
+- name: SimpleDataBase
+  language: C
+  description: 用 C 语言实现一个简易数据库。
+  url: https://github.com/PureLearning-dev/A-Simple-Database-In-C
