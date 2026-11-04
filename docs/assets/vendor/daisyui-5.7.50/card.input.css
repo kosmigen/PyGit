@@ -1,0 +1,7 @@
+@import "tailwindcss" source(none);
+@plugin "daisyui" {
+  themes: light --default;
+  include: card, button;
+  logs: false;
+}
+@source inline("card card-sm card-body card-title card-actions btn btn-primary btn-sm bg-base-100 shadow-sm justify-end w-full");

@@ -1,8 +1,21 @@
 {% if site.series %}
-<wa-card class="series-card" aria-label="{{ site.series.title | escape }}">
-  <strong slot="header">{{ site.series.title | escape }}</strong>
-  {{ site.series.subject | escape }}<br><br>
-  {{ site.series.description | escape }}
-  <wa-button slot="footer" variant="neutral" appearance="outlined" size="s" href="{{ site.series.url | relative_url | escape }}">{{ site.series.link_text | escape }}</wa-button>
-</wa-card>
+{% unless page.url == site.series.url %}
+<div class="series-card" aria-label="{{ site.series.title | escape }}">
+  <template shadowrootmode="open">
+    <link rel="stylesheet" href="{{ '/assets/vendor/daisyui-5.7.50/card.css' | relative_url }}">
+    <article data-theme="light" class="card card-sm w-full bg-base-100 shadow-sm">
+      <figure>
+        <img src="{{ site.series.image | relative_url | escape }}" alt="{{ site.series.image_alt | escape }}" width="1536" height="1024" loading="lazy">
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">{{ site.series.title | escape }}</h2>
+        <p>{{ site.series.description | escape }}</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary btn-sm" href="{{ site.series.url | relative_url | escape }}">{{ site.series.link_text | escape }}</a>
+        </div>
+      </div>
+    </article>
+  </template>
+</div>
+{% endunless %}
 {% endif %}

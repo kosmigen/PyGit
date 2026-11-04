@@ -7,13 +7,12 @@ show_downloads: false
 
 # 左侧的系列介绍组件。文案和阅读入口都可以在这里直接修改。
 series:
-  label: BUILD Git FROM SCRATCH WITH PYTHON !
-  title: 从零造轮子
-  subject: 用 Python 写一个 Git
-  description: 亲手实现 Git 的核心机制，记录从零搭建的过程。
-  meta: Python · Version control
-  link_text: 阅读系列
-  url: /#chapters
+  title: Build Your Own X From Scratch
+  description: "What I cannot create, I do not understand. — Richard Feynman"
+  image: /assets/images/wheels-workbench.png
+  image_alt: 木工台上的木质轮子、黄铜轴和绘图工具
+  link_text: 更多轮子
+  url: /wheels/
 
 # 对应当前仓库 https://github.com/kosmigen/PyGit。
 # 如果仓库改名或转移，请同步修改下面的地址。
