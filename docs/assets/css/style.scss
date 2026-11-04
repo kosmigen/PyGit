@@ -4,100 +4,194 @@ layout: null
 
 @import "{{ site.theme }}";
 
-.docs-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-  margin-bottom: 28px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #e5e5e5;
+:root {
+  --color-paper: #fff;
+  --color-ink: #222;
+  --color-text: #323232;
+  --color-link: #267cb9;
+  --color-link-hover: #006699;
+  --font-body: "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --series-paper: #f8f7f3;
+  --series-edge: #e5e3dc;
+  --series-ink: #30372f;
+  --series-muted: #656b60;
+  --series-accent: #62765b;
 }
 
-.docs-nav a[aria-current="page"] {
-  color: #222;
-  font-weight: 700;
+html,
+body {
+  overflow-x: clip;
 }
 
-.docs-edit {
-  margin-top: 36px;
-  padding-top: 16px;
-  border-top: 1px solid #e5e5e5;
-  font-size: 13px;
+body {
+  color: var(--color-text);
+  background: var(--color-paper);
+  font-family: var(--font-body);
 }
 
-.chapter-list {
-  padding-left: 0;
-  list-style: none;
-}
-
-.chapter-list li {
-  padding: 14px 0;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.chapter-list a {
-  font-size: 16px;
-}
-
-.chapter-list p {
-  margin: 6px 0 0;
-}
-
-.chapter-nav {
-  margin: 24px 0;
-  padding: 16px 0;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.chapter-nav-meta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 12px;
-  font-size: 13px;
-}
-
-.chapter-nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-}
-
-.chapter-link {
-  flex: 1 1 180px;
-  min-width: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
   overflow-wrap: anywhere;
+  min-width: 0;
 }
 
-.chapter-link--next {
-  margin-left: auto;
-  text-align: right;
+a {
+  color: var(--color-link);
 }
 
-.chapter-link-label,
-.chapter-link-title {
-  display: block;
-}
-
-.chapter-link-label {
-  margin-bottom: 4px;
-  font-size: 12px;
-}
-
-.chapter-link-title {
-  font-size: 15px;
-}
-
-.chapter-link:hover,
-.chapter-list a:hover {
+a:hover,
+a:focus {
+  color: var(--color-link-hover);
   font-weight: normal;
   text-decoration: underline;
 }
 
-.chapter-link:focus-visible,
-.chapter-list a:focus-visible {
-  outline: 2px solid #267cb9;
-  outline-offset: 4px;
+a:focus-visible {
+  outline: 2px solid var(--color-link-hover);
+  outline-offset: 3px;
+}
+
+.series-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 270px;
+  margin: 28px 0 0;
+  padding: 24px 22px 22px;
+  border: 1px solid var(--series-edge);
+  border-radius: 8px;
+  background: var(--series-paper);
+  color: var(--series-ink);
+}
+
+.series-card-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 20px;
+  color: var(--series-accent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 0.055em;
+  white-space: nowrap;
+}
+
+.series-card-mark {
+  flex: none;
+}
+
+.series-card h2 {
+  margin: 0 0 8px;
+  color: var(--series-ink);
+  font-size: 23px;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+}
+
+.series-card-subject {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.series-card-description {
+  margin: 0 0 18px;
+  color: var(--series-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.series-card-meta {
+  margin: 0 0 14px;
+  color: var(--series-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.series-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  color: var(--series-accent);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.series-card-link:hover,
+.series-card-link:active {
+  color: var(--series-ink);
+}
+
+.sidebar-nav a,
+.docs-edit a {
+  white-space: nowrap;
+}
+
+section.doc-content {
+  min-width: 0;
+  border: 0;
+  margin-bottom: 0;
+  padding: 0 0 50px;
+}
+
+.contents-heading {
+  color: var(--color-ink);
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.chapter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+}
+
+.chapter-nav a {
+  white-space: nowrap;
+}
+
+.chapter-nav .next {
+  margin-left: auto;
+}
+
+.chapter-nav--bottom {
+  margin-top: 20px;
+}
+
+.docs-edit {
+  margin-top: 28px;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 960px) {
+  .site-header {
+    padding-right: 0;
+    margin-bottom: 36px;
+  }
+
+}
+
+@media screen and (min-width: 961px) and (max-height: 700px) {
+  .site-header,
+  .site-footer {
+    position: static;
+  }
+
+  .site-footer {
+    clear: left;
+    margin-top: 32px;
+  }
 }

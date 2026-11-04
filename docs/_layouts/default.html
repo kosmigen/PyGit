@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="site-header">
+        <h1>{{ site.title | escape }}</h1>
+        <p>{{ site.description | escape }}</p>
+        {% include navigation.html %}
+        {% include series-card.html %}
+      </header>
+      <section class="doc-content" id="content" aria-label="文章正文">
+        {{ content }}
+      </section>
+      <footer class="site-footer">
+        <p>Maintained by kosmigen.</p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by orderedlist</small></p>
+      </footer>
+    </div>
+  </body>
+</html>

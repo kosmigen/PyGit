@@ -1,5 +1,4 @@
-<nav class="docs-nav" aria-label="文档导航">
-  {% for item in site.navigation %}
-  <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title | escape }}</a>
-  {% endfor %}
+<nav class="sidebar-nav" aria-label="网站导航">
+  <p class="view"><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Overview</a></p>
+  <p class="view"><a href="https://github.com/{{ site.repository | escape }}">View on GitHub</a></p>
 </nav>

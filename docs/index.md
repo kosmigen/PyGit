@@ -1,45 +1,21 @@
 ---
-title: PyGit
+title: Git 是如何工作的？
 permalink: /
 ---
 
-用 Python 实现一个小型版本控制工具，逐步理解 Git 如何保存文件、记录状态和组织历史。
+- Git 如何保存一个文件的内容？
+- 相同内容为什么会得到相同的对象哈希？
+- 文件修改后，旧版本保存在什么地方？
+- `add` 之后，暂存区究竟记录了什么？
+- 一个目录如何被组织成完整的快照？
+- 提交记录、分支和 `HEAD` 之间是什么关系？
 
-这是一个学习项目。你可以从命令行操作开始，也可以直接阅读实现，跟随文件内容如何变成一个可寻址的对象。
+为了理解这些问题，我用 Python 实现一个小型版本控制工具，并在这里记录它的实现过程。
 
-<h2 id="chapters">章节目录</h2>
+PyGit 从最简单的对象存储开始，逐步探索暂存区、目录快照与提交历史。当前已经实现仓库初始化、文件暂存和 Blob 存储，提交逻辑仍在开发中。
 
-可以从第一章开始顺序阅读，也可以直接选择感兴趣的章节。每篇文章的开头和结尾都有上下篇链接。
+<h2 class="contents-heading" id="chapters">Table of Contents</h2>
 
 {% include chapter-list.html %}
 
-## 当前进度
-
-| 功能 | 状态 |
-| --- | --- |
-| `init`：创建 `.pygit/` 仓库 | 已实现 |
-| `add`：暂存单个文件或递归暂存目录 | 已实现 |
-| Blob 对象的 SHA-1 计算、压缩和读取 | 已实现 |
-| JSON 暂存区索引 | 已实现 |
-| `commit`：创建提交记录 | 参数入口已提供，提交逻辑尚未实现 |
-| 查看历史、分支切换与远程同步 | 尚未实现 |
-
-## 一个最小示例
-
-在项目根目录执行：
-
-```bash
-python3 main.py init
-printf 'Hello, PyGit!\n' > hello.txt
-python3 main.py add hello.txt
-```
-
-命令会创建 `.pygit/`，将文件内容保存为压缩的 Blob 对象，并更新暂存区索引。
-
-完整操作步骤见[使用说明]({{ '/guide/' | relative_url }})。
-
-## 关于这份文档
-
-网站采用官方 [Minimal 主题](https://pages-themes.github.io/minimal/)。所有正文都是仓库 `docs/` 目录里的 Markdown 文件，可以在本地编辑，也可以使用每页底部的编辑链接。
-
-[查看项目源码](https://github.com/kosmigen/PyGit) · [MIT 许可证](https://github.com/kosmigen/PyGit/blob/main/LICENSE)
+你可以从第一篇开始阅读，也可以直接选择感兴趣的部分。每篇文章的开头和结尾都提供 Previous / Next 导航。

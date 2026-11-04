@@ -10,26 +10,16 @@
       {% assign next_index = forloop.index0 | plus: 1 %}
       {% assign next_chapter = site.data.chapters[next_index] %}
     {% endif %}
-<nav class="chapter-nav chapter-nav--{{ include.position | escape }}" aria-label="{% if include.position == 'top' %}文章开头{% else %}文章结尾{% endif %}的章节导航">
-  <div class="chapter-nav-meta">
-    <span>第 {{ forloop.index }} / {{ site.data.chapters.size }} 章</span>
-    <a href="{{ '/' | relative_url }}#chapters">返回章节目录</a>
-  </div>
-  <div class="chapter-nav-links">
+    {% if previous_chapter or next_chapter %}
+<nav class="chapter-nav chapter-nav--{{ include.position | escape }}" aria-label="{% if include.position == 'top' %}Top{% else %}Bottom{% endif %} chapter navigation">
     {% if previous_chapter %}
-    <a class="chapter-link chapter-link--previous" href="{{ previous_chapter.url | relative_url }}" rel="prev">
-      <span class="chapter-link-label">&larr; 上一篇</span>
-      <span class="chapter-link-title">{{ previous_chapter.title | escape }}</span>
-    </a>
+  <a class="previous" href="{{ previous_chapter.url | relative_url | escape }}" rel="prev">&laquo; Previous: {{ previous_chapter.title | escape }}</a>
     {% endif %}
     {% if next_chapter %}
-    <a class="chapter-link chapter-link--next" href="{{ next_chapter.url | relative_url }}" rel="next">
-      <span class="chapter-link-label">下一篇 &rarr;</span>
-      <span class="chapter-link-title">{{ next_chapter.title | escape }}</span>
-    </a>
+  <a class="next" href="{{ next_chapter.url | relative_url | escape }}" rel="next">Next: {{ next_chapter.title | escape }} &raquo;</a>
     {% endif %}
-  </div>
 </nav>
+    {% endif %}
     {% break %}
   {% endif %}
 {% endfor %}
