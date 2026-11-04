@@ -1,13 +1,13 @@
 # 网站标题、描述和主题可以直接在这里修改。
-title: PyGit
-description: 用 Python 理解 Git：从对象存储到版本控制。
+title: Let's Build A Simple Git
+description: Write the Git core implementation from scratch using Python.
 lang: zh-CN
 theme: jekyll-theme-minimal
 show_downloads: false
 
 # 左侧的系列介绍组件。文案和阅读入口都可以在这里直接修改。
 series:
-  label: BUILD FROM SCRATCH
+  label: BUILD Git FROM SCRATCH WITH PYTHON !
   title: 从零造轮子
   subject: 用 Python 写一个 Git
   description: 亲手实现 Git 的核心机制，记录从零搭建的过程。
