@@ -3,10 +3,6 @@ title: 实现原理
 permalink: /internals/
 ---
 
-{% include navigation.html %}
-
-# 实现原理
-
 ## 代码入口
 
 | 文件或类 | 职责 |
@@ -70,5 +66,3 @@ permalink: /internals/
 - Commit 对象如何关联 Tree、父提交与作者信息。
 - 提交后如何更新分支引用。
 - 如何查看历史、还原文件与管理分支。
-
-{% include edit-link.html %}

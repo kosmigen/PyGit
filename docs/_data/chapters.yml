@@ -1,0 +1,11 @@
+# 首页章节目录和文章上下篇共用这份列表，顺序由上到下。
+# 新增文章后，只需在这里加入标题、页面地址与简介。
+- title: 使用说明
+  url: /guide/
+  description: 从初始化仓库开始，动手暂存文件和目录。
+- title: 实现原理
+  url: /internals/
+  description: 理解 Blob 对象、内容寻址与暂存区索引。
+- title: 编辑与发布文档
+  url: /editing/
+  description: 编写 Markdown、添加章节并更新文档网站。

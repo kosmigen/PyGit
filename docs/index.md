@@ -1,23 +1,17 @@
 ---
-title: 项目文档
+title: PyGit
 permalink: /
 ---
-
-{% include navigation.html %}
-
-# PyGit
 
 用 Python 实现一个小型版本控制工具，逐步理解 Git 如何保存文件、记录状态和组织历史。
 
 这是一个学习项目。你可以从命令行操作开始，也可以直接阅读实现，跟随文件内容如何变成一个可寻址的对象。
 
-## 从这里开始
+<h2 id="chapters">章节目录</h2>
 
-| 我想了解…… | 阅读文档 |
-| --- | --- |
-| 如何初始化仓库、暂存文件 | [使用说明]({{ '/guide/' | relative_url }}) |
-| Blob、SHA-1 和暂存区如何工作 | [实现原理]({{ '/internals/' | relative_url }}) |
-| 如何修改页面、添加文章与发布网站 | [编辑文档]({{ '/editing/' | relative_url }}) |
+可以从第一章开始顺序阅读，也可以直接选择感兴趣的章节。每篇文章的开头和结尾都有上下篇链接。
+
+{% include chapter-list.html %}
 
 ## 当前进度
 
@@ -49,5 +43,3 @@ python3 main.py add hello.txt
 网站采用官方 [Minimal 主题](https://pages-themes.github.io/minimal/)。所有正文都是仓库 `docs/` 目录里的 Markdown 文件，可以在本地编辑，也可以使用每页底部的编辑链接。
 
 [查看项目源码](https://github.com/kosmigen/PyGit) · [MIT 许可证](https://github.com/kosmigen/PyGit/blob/main/LICENSE)
-
-{% include edit-link.html %}

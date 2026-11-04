@@ -1,4 +1,5 @@
 ---
+layout: null
 ---
 
 @import "{{ site.theme }}";
@@ -22,4 +23,81 @@
   padding-top: 16px;
   border-top: 1px solid #e5e5e5;
   font-size: 13px;
+}
+
+.chapter-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.chapter-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.chapter-list a {
+  font-size: 16px;
+}
+
+.chapter-list p {
+  margin: 6px 0 0;
+}
+
+.chapter-nav {
+  margin: 24px 0;
+  padding: 16px 0;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.chapter-nav-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.chapter-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.chapter-link {
+  flex: 1 1 180px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.chapter-link--next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.chapter-link-label,
+.chapter-link-title {
+  display: block;
+}
+
+.chapter-link-label {
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.chapter-link-title {
+  font-size: 15px;
+}
+
+.chapter-link:hover,
+.chapter-list a:hover {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.chapter-link:focus-visible,
+.chapter-list a:focus-visible {
+  outline: 2px solid #267cb9;
+  outline-offset: 4px;
 }

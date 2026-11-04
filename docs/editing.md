@@ -3,10 +3,6 @@ title: 编辑与发布文档
 permalink: /editing/
 ---
 
-{% include navigation.html %}
-
-# 编辑与发布文档
-
 ## 修改现有内容
 
 直接用编辑器打开仓库中的 Markdown 文件：
@@ -17,13 +13,31 @@ permalink: /editing/
 | `docs/guide.md` | 使用说明与命令示例 |
 | `docs/internals.md` | 代码结构与实现原理 |
 | `docs/editing.md` | 本页：编辑与发布方法 |
-| `docs/_config.yml` | 网站标题、描述、导航和地址 |
+| `docs/_data/chapters.yml` | 首页章节目录、章节顺序和上下篇 |
+| `docs/_config.yml` | 网站标题、描述、顶部快捷导航和地址 |
 
-每页开头 `---` 之间的内容是页面配置；其余正文按 Markdown 编写。页面中 `{% raw %}{% include ... %}{% endraw %}` 用于显示导航和编辑入口，修改正文时保留即可。
+每页开头 `---` 之间的内容是页面配置；其余正文按 Markdown 编写。模板会自动显示页面标题、顶部导航、上下篇和编辑入口，正文中不需要重复编写它们。正文的小节从 `##` 开始即可。
 
 也可以点击每页底部的 **在 GitHub 上编辑本页**，登录 GitHub 后在线修改。有仓库写入权限时可以直接提交；其他访问者可按 GitHub 提示通过 Fork 和 Pull Request 提交修改。
 
 GitHub Pages 展示发布后的内容，编辑入口会打开 GitHub 的源文件编辑页面。
+
+## 章节目录与上下篇如何生成
+
+首页目录和每篇文章开头、结尾的上下篇，共用 `docs/_data/chapters.yml`。列表的先后顺序就是阅读顺序，不依赖文件名和发布日期：
+
+```yaml
+- title: 使用说明
+  url: /guide/
+  description: 从初始化仓库开始，动手暂存文件和目录。
+- title: 实现原理
+  url: /internals/
+  description: 理解 Blob 对象、内容寻址与暂存区索引。
+```
+
+调整这里的顺序，首页目录和所有文章的上下篇会一起更新。第一章只显示“下一篇”，最后一章只显示“上一篇”，不会循环跳转。每处章节导航还提供“返回章节目录”。
+
+只有加入这份列表的页面才显示上下篇。普通介绍页可以只创建 Markdown，不加入列表。`_config.yml` 中的 `navigation` 是所有页面顶部的快捷导航，可以按需独立维护。
 
 ## 常用 Markdown 写法
 
@@ -50,31 +64,32 @@ print("Hello, PyGit!")
 
 上面的图片路径是示例，使用前请放入自己的图片。`relative_url` 会自动加上 `/PyGit` 项目路径。
 
-## 添加一个新页面
+## 添加一个新章节
 
 例如，在 `docs/` 下新建 `notes.md`，内容如下：
 
-```liquid
-{% raw %}---
+```markdown
+---
 title: 开发笔记
 permalink: /notes/
 ---
 
-{% include navigation.html %}
-
-# 开发笔记
-
 在这里记录你的开发过程。
 
-{% include edit-link.html %}{% endraw %}
+## 第一次实现记录
+
+这里写这一小节的正文。
 ```
 
-然后在 `docs/_config.yml` 的 `navigation` 列表中追加：
+然后在 `docs/_data/chapters.yml` 的适当位置加入：
 
 ```yaml
-  - title: 开发笔记
-    url: /notes/
+- title: 开发笔记
+  url: /notes/
+  description: 记录开发过程、遇到的问题和解决方法。
 ```
+
+这里的 `url` 必须与新文件的 `permalink` 完全一致，包括结尾的 `/`。提交并推送新文件和章节列表后，首页就会出现新章节，上下篇链接也会自动更新，无需修改其他文章。
 
 正文中链接到该页面时，使用：
 
@@ -114,8 +129,7 @@ Ruby 依赖只用于文档网站的本地预览，不影响 Python 程序。构�
 - 在 `docs/_config.yml` 修改 `title` 和 `description`。
 - 当前使用 `theme: jekyll-theme-minimal`，保留该配置即可继续使用指定主题。
 - `docs/assets/css/style.scss` 先导入官方主题，再补充导航与编辑入口样式。需要微调时可在文件末尾追加 CSS。
+- `docs/_layouts/documentation.html` 负责统一组合标题、正文、上下篇和编辑入口。普通内容修改不需要编辑模板。
 - 如果仓库改名、迁移到其他账号或更换分支，请同步更新 `_config.yml` 中的地址配置。
 
 官方参考：[Minimal 主题](https://github.com/pages-themes/minimal) · [GitHub Pages 发布源设置](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-
-{% include edit-link.html %}

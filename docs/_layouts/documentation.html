@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% include navigation.html %}
+
+<h1>{{ page.title | escape }}</h1>
+
+{% include chapter-navigation.html position="top" %}
+
+{{ content }}
+
+{% include chapter-navigation.html position="bottom" %}
+
+{% include edit-link.html %}

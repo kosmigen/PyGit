@@ -3,10 +3,6 @@ title: 使用说明
 permalink: /guide/
 ---
 
-{% include navigation.html %}
-
-# 使用说明
-
 ## 运行环境
 
 - 建议使用 Python 3.9 或更新版本。
@@ -97,5 +93,3 @@ python3 main.py commit -m "第一次提交"
 - 重复暂存修改后的文件会留下旧对象，目前没有垃圾回收功能。
 
 项目源码与文档的提交、推送仍需使用真正的 Git。
-
-{% include edit-link.html %}

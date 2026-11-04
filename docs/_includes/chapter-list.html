@@ -1,0 +1,8 @@
+<ol class="chapter-list">
+  {% for chapter in site.data.chapters %}
+  <li>
+    <a href="{{ chapter.url | relative_url }}">第 {{ forloop.index }} 章：{{ chapter.title | escape }}</a>
+    {% if chapter.description %}<p>{{ chapter.description | escape }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ol>
