@@ -9,9 +9,6 @@
   <body>
     <div class="wrapper">
       <header class="site-header">
-        {% if page.url == '/' %}
-        <img class="site-logo" src="{{ '/assets/images/pygit.svg' | relative_url }}" alt="PyGit 提交历史示意图" width="270" height="180">
-        {% endif %}
         <h1>{{ site.title | escape }}</h1>
         <p>{{ site.description | escape }}</p>
         {% include navigation.html %}
