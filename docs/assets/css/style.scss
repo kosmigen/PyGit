@@ -11,12 +11,6 @@ layout: null
   --color-link: #267cb9;
   --color-link-hover: #006699;
   --font-body: "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --series-paper: #f8f7f3;
-  --series-edge: #e5e3dc;
-  --series-ink: #30372f;
-  --series-muted: #656b60;
-  --series-accent: #62765b;
 }
 
 html,
@@ -58,77 +52,10 @@ a:focus-visible {
 }
 
 .series-card {
-  box-sizing: border-box;
+  display: block;
   width: 100%;
   max-width: 270px;
-  margin: 28px 0 0;
-  padding: 24px 22px 22px;
-  border: 1px solid var(--series-edge);
-  border-radius: 8px;
-  background: var(--series-paper);
-  color: var(--series-ink);
-}
-
-.series-card-label {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin: 0 0 20px;
-  color: var(--series-accent);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  line-height: 20px;
-  letter-spacing: 0.055em;
-  white-space: nowrap;
-}
-
-.series-card-mark {
-  flex: none;
-}
-
-.series-card h2 {
-  margin: 0 0 8px;
-  color: var(--series-ink);
-  font-size: 23px;
-  line-height: 1.35;
-  font-weight: 600;
-  letter-spacing: 0.035em;
-}
-
-.series-card-subject {
-  margin: 0 0 14px;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.series-card-description {
-  margin: 0 0 18px;
-  color: var(--series-muted);
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-.series-card-meta {
-  margin: 0 0 14px;
-  color: var(--series-muted);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  line-height: 1.6;
-}
-
-.series-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 32px;
-  color: var(--series-accent);
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.series-card-link:hover,
-.series-card-link:active {
-  color: var(--series-ink);
+  margin-top: 28px;
 }
 
 .sidebar-nav a,

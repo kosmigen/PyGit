@@ -15,7 +15,7 @@ permalink: /editing/
 | `docs/editing.md` | 本页：编辑与发布方法 |
 | `docs/_data/chapters.yml` | 首页章节目录、章节顺序和上下篇 |
 | `docs/_config.yml` | 网站标题、描述、系列介绍卡片和网站地址 |
-| `docs/_includes/series-card.html` | 左侧“从零造轮子”系列介绍组件 |
+| `docs/_includes/series-card.html` | 使用 Web Awesome Card 和 Button 的左侧系列介绍 |
 
 每页开头 `---` 之间的内容是页面配置；其余正文按 Markdown 编写。模板会自动显示页面标题、侧边导航、上下篇和编辑入口，正文中不需要重复编写它们。正文的小节从 `##` 开始即可。
 
@@ -128,10 +128,11 @@ Ruby 依赖只用于文档网站的本地预览，不影响 Python 程序。构�
 ## 修改网站名称与主题样式
 
 - 在 `docs/_config.yml` 修改 `title` 和 `description`。
-- 左侧“从零造轮子”系列卡片的文案由 `_config.yml` 中的 `series` 配置控制。可以修改 `title`、`subject`、`description` 和 `link_text`；`url` 指定阅读入口，默认指向首页章节目录。
+- 左侧“从零造轮子”使用 [Web Awesome 官方 Card](https://webawesome.com/docs/components/card/) 和 [Button](https://webawesome.com/docs/components/button/)，直接加载组件库的原始代码与默认主题。文案由 `_config.yml` 中的 `series` 配置控制：`title` 是卡片标题，`subject` 和 `description` 是正文，`link_text` 和 `url` 控制阅读入口。
 - 当前使用 `theme: jekyll-theme-minimal`，保留该配置即可继续使用指定主题。
 - `docs/assets/css/style.scss` 先导入官方主题，再补充侧栏、正文和纯文字导航样式。页面顶部和上下篇之间不添加分隔线。
 - `docs/_layouts/default.html` 定义左侧网站信息、系列卡片和右侧正文区域。`docs/_includes/series-card.html` 是系列卡片模板；标题和说明保持普通文字，只有阅读入口使用链接。
+- `docs/assets/vendor/webawesome-3.14.0/` 保存官方发布包中的实际组件及依赖，使用 MIT 许可证。版本与原始文件校验值见其中的 `provenance.json`；组件库的文件保持原样。站点样式只设置卡片在侧栏中的宽度和位置。
 - `docs/_layouts/documentation.html` 负责统一组合标题、正文、上下篇和编辑入口。普通内容修改不需要编辑模板。
 - 如果仓库改名、迁移到其他账号或更换分支，请同步更新 `_config.yml` 中的地址配置。
 

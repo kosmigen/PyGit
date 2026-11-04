@@ -1,20 +1,8 @@
 {% if site.series %}
-<aside class="series-card" aria-labelledby="series-title">
-  <p class="series-card-label">
-    <svg class="series-card-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true" focusable="false">
-      <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.25"/>
-      <circle cx="12" cy="12" r="2.25" stroke="currentColor" stroke-width="1.25"/>
-      <path d="M12 3.75v6M12 14.25v6M3.75 12h6M14.25 12h6M6.2 6.2l4.2 4.2M13.6 13.6l4.2 4.2M6.2 17.8l4.2-4.2M13.6 10.4l4.2-4.2" stroke="currentColor" stroke-width="1.1"/>
-    </svg>
-    <span>{{ site.series.label | escape }}</span>
-  </p>
-  <h2 id="series-title">{{ site.series.title | escape }}</h2>
-  <p class="series-card-subject">{{ site.series.subject | escape }}</p>
-  <p class="series-card-description">{{ site.series.description | escape }}</p>
-  <p class="series-card-meta">{{ site.series.meta | escape }}</p>
-  <a class="series-card-link" href="{{ site.series.url | relative_url | escape }}">
-    {{ site.series.link_text | escape }}
-    <span aria-hidden="true">&rarr;</span>
-  </a>
-</aside>
+<wa-card class="series-card" aria-label="{{ site.series.title | escape }}">
+  <strong slot="header">{{ site.series.title | escape }}</strong>
+  {{ site.series.subject | escape }}<br><br>
+  {{ site.series.description | escape }}
+  <wa-button slot="footer" variant="neutral" appearance="outlined" size="s" href="{{ site.series.url | relative_url | escape }}">{{ site.series.link_text | escape }}</wa-button>
+</wa-card>
 {% endif %}
