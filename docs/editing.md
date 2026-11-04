@@ -16,7 +16,7 @@ permalink: /editing/
 | `docs/_data/chapters.yml` | 首页章节目录、章节顺序和上下篇 |
 | `docs/_config.yml` | 网站标题、描述、系列介绍卡片和网站地址 |
 | `docs/_includes/series-card.html` | 使用 daisyUI 图片卡片的左侧系列介绍 |
-| `docs/wheels.md`、`docs/_data/wheels.yml` | “更多轮子”的系列目录及项目列表 |
+| `docs/wheels.md`、`docs/_data/wheels.yml` | “More Projects”的系列目录及项目列表 |
 
 每页开头 `---` 之间的内容是页面配置；其余正文按 Markdown 编写。模板会自动显示页面标题、侧边导航、上下篇和编辑入口，正文中不需要重复编写它们。正文的小节从 `##` 开始即可。
 
@@ -129,12 +129,12 @@ Ruby 依赖只用于文档网站的本地预览，不影响 Python 程序。构�
 ## 修改网站名称与主题样式
 
 - 在 `docs/_config.yml` 修改 `title` 和 `description`。
-- 左侧“从零造轮子”使用 [daisyUI 官方 Card](https://daisyui.com/components/card/) 和 [Button](https://daisyui.com/components/button/)。文案由 `_config.yml` 中的 `series` 配置控制：`title` 是卡片标题，`description` 是正文，`image` 和 `image_alt` 控制图片区，`link_text` 和 `url` 控制按钮。所有保留的配置字段都会实际用于页面。
+- 左侧“Build Your Own X From Scratch”使用 [daisyUI 官方 Card](https://daisyui.com/components/card/) 和 [Button](https://daisyui.com/components/button/)。文案由 `_config.yml` 中的 `series` 配置控制：`title` 是卡片标题，`description` 是正文，`image` 和 `image_alt` 控制图片区，`link_text` 和 `url` 控制按钮。所有保留的配置字段都会实际用于页面。
 - 当前使用 `theme: jekyll-theme-minimal`，保留该配置即可继续使用指定主题。
 - `docs/assets/css/style.scss` 先导入官方主题，再补充侧栏、正文和纯文字导航样式。页面顶部和上下篇之间不添加分隔线。
 - `docs/_layouts/default.html` 定义左侧网站信息、系列卡片和右侧正文区域。`docs/_includes/series-card.html` 是系列卡片模板；标题和说明保持普通文字，只有阅读入口使用链接。
 - `docs/assets/vendor/daisyui-5.7.50/` 保存由官方 daisyUI 插件和 Tailwind CSS 编译的卡片、按钮样式，以及版本和构建记录。卡片使用默认 light 主题，站点样式只设置它在侧栏中的宽度和位置。
-- “更多轮子”指向本站 `/wheels/`。要加入新项目，在 `docs/_data/wheels.yml` 添加项目名、简介、语言和地址即可。
+- “More Projects”指向本站 `/wheels/`。要加入新项目，在 `docs/_data/wheels.yml` 添加项目名、简介、语言和地址即可。
 - `docs/_layouts/documentation.html` 负责统一组合标题、正文、上下篇和编辑入口。普通内容修改不需要编辑模板。
 - 如果仓库改名、迁移到其他账号或更换分支，请同步更新 `_config.yml` 中的地址配置。
 

@@ -11,7 +11,7 @@ series:
   description: "What I cannot create, I do not understand. — Richard Feynman"
   image: /assets/images/wheels-workbench.png
   image_alt: 木工台上的木质轮子、黄铜轴和绘图工具
-  link_text: 更多轮子
+  link_text: More Projects
   url: /wheels/
 
 # 对应当前仓库 https://github.com/kosmigen/PyGit。
