@@ -1,48 +1,20 @@
 import argparse
-import json
-from pathlib import Path
 import sys
+from object import GitRepository
 
-class GitRepository:
-    def __init__(self, path):
-        # 初始化 Git 仓库对象
-        self.path = Path(path).resolve()
-        self.pygit_dir = self.path / '.pygit'
 
-        self.objects_dir = self.pygit_dir / 'objects'
-
-        self.refs_dir = self.pygit_dir / 'refs'
-        self.heads_dir = self.refs_dir / 'heads'
-
-        self.head_file = self.pygit_dir / 'HEAD'
-
-        self.index_file = self.pygit_dir / 'index'
-
-    def init(self) -> bool:
-        if self.pygit_dir.exists():
-            return False
-        
-        # 创建 .pygit 目录以及其子目录
-        self.pygit_dir.mkdir()
-        self.objects_dir.mkdir(exist_ok=True)
-        self.refs_dir.mkdir(exist_ok=True)
-        self.heads_dir.mkdir(exist_ok=True)
-
-        # 创建 HEAD 文件并指向默认分支
-        self.head_file.write_text('ref: refs/heads/kosmigen\n')
-        # 创建 index 文件
-        self.index_file.write_text(json.dumps({}, indent=2))
-
-        print(f"Initialized empty PyGit repository in {self.pygit_dir}")
-        
-        return True
-
+    
 def main():
     argparser = argparse.ArgumentParser(description="PyGit - A simple Git implementation in Python")
     sub_argparser = argparser.add_subparsers(dest="command", help="Available commands")
 
+    # init command implementation
     init_parser = sub_argparser.add_parser("init", help="Initialize a new Git repository")
-    init_parser.add_argument("init_path", nargs="?", default=".", help="Path to initialize the repository (default: current directory)")
+    init_parser.add_argument("path", nargs="?", default=".", help="Path to initialize the repository (default: current directory)")
+
+    # add command implementation
+    add_parser = sub_argparser.add_parser("add", help="Add files and directories to the staging area")
+    add_parser.add_argument("paths", nargs="+", help="Files or directories to add")
 
     # 从命令行参数中解析参数
     args = argparser.parse_args()
@@ -57,14 +29,32 @@ def main():
         argparser.print_help()
         return
 
+    # 如果是 init 命令，则使用提供的路径初始化仓库，否则使用当前目录
+    repo = GitRepository(args.path if args.command == "init" else ".")
     try:
         if args.command == "init":
-            repo = GitRepository(args.init_path)
             if not repo.init():
                 print(f"Repository already exists in {repo.pygit_dir}.")
                 return 
+        
+        elif args.command == "add":  
+            if not repo.pygit_dir.exists():
+                print(f"Error: No PyGit repository found in {repo.path}. Please run 'init' first.")
+                return      
 
-    except Exception as e:
+            # 遍历所有提供的路径并添加到暂存区
+            # print(args.paths)
+            # TODO: 如果文件修改，不会进行垃圾回收，暂存区会一直保存旧的文件内容，导致占用空间过大
+            for path in args.paths: 
+                full_path = repo.path / path
+                if full_path.is_file():
+                    repo.add_file(full_path)
+                elif full_path.is_dir():
+                    repo.add_directory(full_path)
+                else:
+                    raise FileNotFoundError(f"Path '{full_path}' does not exist.")
+                
+    except Exception as e:  # noqa: BLE001
         print(f"Error: {e}")
         sys.exit(1)
     
